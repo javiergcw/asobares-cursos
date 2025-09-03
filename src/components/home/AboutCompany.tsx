@@ -346,7 +346,7 @@ const AboutCompany: React.FC = () => {
             </AboutHeader>
             
             <MainHeadline variant="h2">
-              Formamos los mejores profesionales de la hostelería
+              Formamos los mejores profesionales
             </MainHeadline>
             
             <Description variant="body1">

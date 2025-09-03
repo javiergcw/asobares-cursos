@@ -17,6 +17,7 @@ import { COLORS } from '../../utils/colors';
 
 // Componentes estilizados
 const ServicesContainer = styled(Box)({
+  backgroundColor: COLORS.WHITE,
   padding: '80px 0',
   width: '100%',
   '@media (max-width: 768px)': {

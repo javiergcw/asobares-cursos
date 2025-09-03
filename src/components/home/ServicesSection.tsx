@@ -68,7 +68,7 @@ const ServicesSubtitle = styled(Typography)({
 const MainHeadline = styled(Typography)({
   fontSize: '3rem',
   fontWeight: 'bold',
-  color: COLORS.DARK_PURPLE,
+  color: COLORS.PRIMARY_DARK,
   lineHeight: 1.2,
   marginBottom: '0',
   '@media (max-width: 768px)': {
@@ -184,7 +184,7 @@ const ServiceDescription = styled(Typography)({
 });
 
 const BookServiceButton = styled(Button)({
-  backgroundColor: COLORS.LOGO_ORANGE,
+  backgroundColor: COLORS.PRIMARY_DARK,
   color: COLORS.WHITE,
   borderRadius: '25px',
   padding: '12px 24px',
@@ -192,7 +192,7 @@ const BookServiceButton = styled(Button)({
   fontSize: '16px',
   fontWeight: 'bold',
   '&:hover': {
-    backgroundColor: '#e55a00',
+    backgroundColor: COLORS.PRIMARY_LIGHT,
   },
   '@media (max-width: 768px)': {
     padding: '10px 20px',
@@ -208,44 +208,44 @@ const BookServiceButton = styled(Button)({
 const servicesData = [
   {
     id: 1,
-    title: 'AC Repair',
-    description: 'Fast, reliable air conditioning repair to restore your comfort.',
-    image: '/img/image.webp',
+    title: 'Bartender Profesional',
+    description: 'Aprende las técnicas avanzadas de mixología, preparación de cócteles clásicos y modernos, y el arte del servicio en barra.',
+    image: '/img/bartender_pro.webp',
     isSpecial: true,
   },
   {
     id: 2,
-    title: 'AC Installation',
-    description: 'Professional installation of energy efficient air conditioning systems.',
-    image: '/img/image.webp',
+    title: 'Fundamentos de Bartending',
+    description: 'Curso básico para iniciarte en el mundo de la coctelería, incluyendo técnicas fundamentales y preparación de bebidas básicas.',
+    image: '/img/bartender.webp',
     isSpecial: false,
   },
   {
     id: 3,
-    title: 'AC Duct Cleaning',
-    description: 'Thorough cleaning of air ducts to improve airflow, enhance cooling.',
-    image: '/img/image.webp',
+    title: 'Gestión de Bar y Restaurante',
+    description: 'Aprende administración, control de inventarios, costos y operaciones eficientes para negocios gastronómicos.',
+    image: '/img/bar.webp',
     isSpecial: false,
   },
   {
     id: 4,
-    title: 'AC Duct Sealing',
-    description: 'Expert sealing of air ducts to prevent leaks, boost efficiency.',
-    image: '/img/image.webp',
+    title: 'Comunicación Asertiva',
+    description: 'Desarrolla habilidades de comunicación efectiva para mejorar la atención al cliente y el trabajo en equipo.',
+    image: '/img/comunicaion_asertiva.webp',
     isSpecial: false,
   },
   {
     id: 5,
-    title: 'Attic Insulation',
-    description: 'High-quality attic insulation to reduce energy loss, improve cooling.',
-    image: '/img/image.webp',
+    title: 'Servicio al Cliente Excelente',
+    description: 'Técnicas para brindar un servicio excepcional que genere clientes satisfechos y fieles.',
+    image: '/img/cliente_feliz.webp',
     isSpecial: false,
   },
   {
     id: 6,
-    title: 'Air-Quality',
-    description: 'Advanced air quality solutions to remove pollutants, control humidity.',
-    image: '/img/image.webp',
+    title: 'Creación de Hoja de Vida',
+    description: 'Aprende a crear un CV profesional y atractivo que destaque tus habilidades en la industria gastronómica.',
+    image: '/img/crear_una_buena_hoja_de_vida.webp',
     isSpecial: false,
   },
 ];
@@ -263,10 +263,10 @@ const ServicesSection: React.FC = () => {
           {/* Header Section */}
           <HeaderSection>
             <ServicesSubtitle variant="body2">
-              OUR SERVICES
+              NUESTROS CURSOS
             </ServicesSubtitle>
             <MainHeadline variant="h2">
-              Comprehensive AC services for every need
+              Cursos profesionales de bartending y servicio al cliente
             </MainHeadline>
           </HeaderSection>
 
@@ -292,14 +292,8 @@ const ServicesSection: React.FC = () => {
                    <BookServiceButton
                      endIcon={<ArrowForward />}
                      onClick={() => handleBookService(service.id)}
-                     sx={{
-                       backgroundColor: COLORS.LOGO_ORANGE,
-                       '&:hover': {
-                         backgroundColor: COLORS.DARK_PURPLE,
-                       },
-                     }}
                    >
-                     BOOK SERVICE
+                     Inscribirse
                    </BookServiceButton>
                  </ContentSection>
                </ServiceCard>

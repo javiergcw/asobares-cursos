@@ -31,12 +31,12 @@ const PartnersContainer = styled(Box)({
 const ContentWrapper = styled(Box)({
   display: 'flex',
   flexDirection: 'column',
-  gap: '60px',
+  gap: '30px',
   '@media (max-width: 768px)': {
-    gap: '40px',
+    gap: '25px',
   },
   '@media (max-width: 480px)': {
-    gap: '30px',
+    gap: '20px',
   },
 });
 
@@ -61,7 +61,7 @@ const Subtitle = styled(Typography)({
 const MainTitle = styled(Typography)({
   fontSize: '3rem',
   fontWeight: 'bold',
-  color: COLORS.DARK_PURPLE,
+  color: COLORS.PRIMARY_DARK,
   lineHeight: 1.2,
   marginBottom: '24px',
   '@media (max-width: 768px)': {
@@ -100,7 +100,7 @@ const SwiperContainer = styled(Box)({
 });
 
 const LogoCard = styled(Box)({
-  minWidth: '200px',
+  width: '200px',
   height: '120px',
   backgroundColor: COLORS.WHITE,
   borderRadius: '12px',
@@ -116,25 +116,22 @@ const LogoCard = styled(Box)({
     boxShadow: '0 8px 25px rgba(0,0,0,0.12)',
   },
   '@media (max-width: 768px)': {
-    minWidth: '180px',
+    width: '180px',
     height: '110px',
     padding: '18px',
   },
   '@media (max-width: 480px)': {
-    minWidth: '160px',
+    width: '160px',
     height: '100px',
     padding: '16px',
   },
 });
 
-const LogoImage = styled(Box)({
+const LogoImage = styled('img')({
   width: '100%',
   height: '100%',
+  objectFit: 'contain',
   borderRadius: '8px',
-  backgroundImage: 'url(/img/image.webp)',
-  backgroundSize: 'cover',
-  backgroundPosition: 'center',
-  backgroundRepeat: 'no-repeat',
   '@media (max-width: 768px)': {
     borderRadius: '6px',
   },
@@ -179,53 +176,45 @@ const LogoSlogan = styled(Typography)({
 const partnerLogos = [
   {
     id: 1,
-    name: 'TRANE',
-    slogan: "It's Hard To Stop A Trane",
+    name: 'Bavaria',
+    slogan: 'Cerveza de Colombia',
+    logo: '/logos/bavaria.webp',
   },
   {
     id: 2,
-    name: 'YORK',
-    slogan: 'Heating & Cooling',
+    name: 'Crabs',
+    slogan: 'Seafood & More',
+    logo: '/logos/crabs.webp',
   },
   {
     id: 3,
-    name: 'bryant',
-    slogan: 'Heating & Cooling Systems',
+    name: 'Diageo',
+    slogan: 'Celebrating life every day, everywhere',
+    logo: '/logos/diageo.webp',
   },
   {
     id: 4,
-    name: 'Rheem',
-    slogan: 'Built to be better',
+    name: 'Dislicores',
+    slogan: 'Tu licor de confianza',
+    logo: '/logos/dislicores.webp',
   },
   {
     id: 5,
-    name: 'Goodman',
-    slogan: 'Quality you can trust',
+    name: 'DocDoc',
+    slogan: 'Innovación en cada sorbo',
+    logo: '/logos/docdoc.webp',
   },
   {
     id: 6,
-    name: 'LENNOX',
-    slogan: 'Innovation never felt so good',
+    name: 'Makers',
+    slogan: 'Handmade in small batches',
+    logo: '/logos/makers.webp',
   },
   {
     id: 7,
-    name: 'Carrier',
-    slogan: 'The world leader in high technology',
-  },
-  {
-    id: 8,
-    name: 'American Standard',
-    slogan: 'Built to last',
-  },
-  {
-    id: 9,
-    name: 'Amana',
-    slogan: 'Built to be better',
-  },
-  {
-    id: 10,
-    name: 'Frigidaire',
-    slogan: 'The world\'s most trusted brand',
+    name: 'Logo',
+    slogan: 'Tu marca de confianza',
+    logo: '/logos/logo.webp',
   },
 ];
 
@@ -237,15 +226,15 @@ const PartnersSection: React.FC = () => {
           {/* Header Section */}
           <HeaderSection>
             <Subtitle variant="body2">
-              QUALITY BRANDS WE TRUST
+              NUESTROS ALIADOS ESTRATÉGICOS
             </Subtitle>
             
             <MainTitle variant="h2">
-              Our Partners
+              Empresas que Confían en Nosotros
             </MainTitle>
             
             <Description variant="body1">
-              Our trusted partner is more than just a collaborator—they're an extension of our team. With shared values, mutual respect, and a commitment to excellence, they work alongside us to deliver innovative solutions and exceptional results.
+              Trabajamos con empresas líderes en sus sectores para ofrecer formación de calidad y oportunidades de desarrollo profesional. Nuestros partners confían en nuestra metodología y compromiso con la excelencia educativa.
             </Description>
           </HeaderSection>
 
@@ -253,7 +242,7 @@ const PartnersSection: React.FC = () => {
           <SwiperContainer>
                          <Swiper
                modules={[Autoplay]}
-               spaceBetween={8}
+               spaceBetween={30}
                slidesPerView={6}
                autoplay={{
                  delay: 3000,
@@ -263,32 +252,32 @@ const PartnersSection: React.FC = () => {
                breakpoints={{
                  320: {
                    slidesPerView: 2,
-                   spaceBetween: 6,
+                   spaceBetween: 30,
                  },
                  592: {
-                   slidesPerView: 2,
-                   spaceBetween: 8,
+                   slidesPerView: 3,
+                   spaceBetween: 30,
                  },
                  906: {
-                   slidesPerView: 3,
-                   spaceBetween: 10,
+                   slidesPerView: 4,
+                   spaceBetween: 30,
                  },
                  1100: {
-                   slidesPerView: 4,
-                   spaceBetween: 12,
+                   slidesPerView: 5,
+                   spaceBetween: 30,
                  },
                  1350: {
-                   slidesPerView: 5,
-                   spaceBetween: 15,
+                   slidesPerView: 6,
+                   spaceBetween: 30,
                  },
                }}
              >
               {partnerLogos.map((logo) => (
-                <SwiperSlide key={logo.id}>
-                  <LogoCard>
-                    <LogoImage />
-                  </LogoCard>
-                </SwiperSlide>
+                                  <SwiperSlide key={logo.id}>
+                    <LogoCard>
+                      <LogoImage src={logo.logo} alt={logo.name} />
+                    </LogoCard>
+                  </SwiperSlide>
               ))}
             </Swiper>
           </SwiperContainer>

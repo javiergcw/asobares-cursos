@@ -69,7 +69,7 @@ const ImageSection = styled(Box)({
 const MainImage = styled(Box)({
   width: '100%',
   height: '100%',
-  backgroundImage: 'url(/img/image.webp)',
+  backgroundImage: 'url(/img/bartender_pro.webp)',
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   backgroundRepeat: 'no-repeat',
@@ -81,7 +81,7 @@ const CallToActionButton = styled(Button)({
   position: 'absolute',
   bottom: '20px',
   left: '20px',
-  backgroundColor: COLORS.DARK_PURPLE,
+  backgroundColor: COLORS.PRIMARY_DARK,
   color: COLORS.WHITE,
   borderRadius: '12px',
   padding: '16px 24px',
@@ -133,7 +133,7 @@ const ProcessSubtitle = styled(Typography)({
 const ProcessTitle = styled(Typography)({
   fontSize: '3rem',
   fontWeight: 'bold',
-  color: COLORS.DARK_PURPLE,
+  color: COLORS.PRIMARY_DARK,
   lineHeight: 1.2,
   marginBottom: '20px',
   '@media (max-width: 768px)': {
@@ -181,7 +181,7 @@ const StepIcon = styled(Box)({
   width: '60px',
   height: '60px',
   borderRadius: '12px',
-  backgroundColor: COLORS.LOGO_ORANGE,
+  backgroundColor: COLORS.PRIMARY_LIGHT,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -215,7 +215,7 @@ const StepNumber = styled(Typography)({
 const StepTitle = styled(Typography)({
   fontSize: '20px',
   fontWeight: 'bold',
-  color: COLORS.DARK_PURPLE,
+  color: COLORS.PRIMARY_DARK,
   marginBottom: '12px',
   '@media (max-width: 768px)': {
     fontSize: '18px',
@@ -245,7 +245,7 @@ const StepConnector = styled(Box)({
   top: '60px',
   width: '2px',
   height: '120px',
-  borderLeft: `2px dashed ${COLORS.LOGO_ORANGE}`,
+  borderLeft: `2px dashed ${COLORS.PRIMARY_LIGHT}`,
   '@media (max-width: 768px)': {
     left: '25px',
     top: '50px',
@@ -266,15 +266,15 @@ const WorkProcessSection: React.FC = () => {
           {/* Header centrado arriba */}
           <ProcessHeader>
             <ProcessSubtitle variant="body2">
-              WORK PROCESS
+              PROCESO DE TRABAJO
             </ProcessSubtitle>
             
             <ProcessTitle variant="h2">
-              Stress free operations
+              Operaciones sin estrés
             </ProcessTitle>
             
             <ProcessDescription variant="body1">
-              With years of expertise, we deliver reliable AC repair and maintenance, ensuring fast, safe, and efficient service for your comfort.
+              Con años de experiencia en el sector de bares y restaurantes, Asobares garantiza servicios confiables, rápidos y seguros para el éxito de tu negocio.
             </ProcessDescription>
           </ProcessHeader>
 
@@ -293,10 +293,10 @@ const WorkProcessSection: React.FC = () => {
                     <CalendarToday sx={{ color: COLORS.WHITE, fontSize: '24px' }} />
                   </StepIcon>
                   <StepContent>
-                    <StepNumber variant="body2">STEP-01</StepNumber>
-                    <StepTitle variant="h6">Book your service</StepTitle>
+                    <StepNumber variant="body2">PASO-01</StepNumber>
+                    <StepTitle variant="h6">Contacta con Asobares</StepTitle>
                     <StepDescription variant="body1">
-                      Call us or schedule online at your convenience. We'll confirm your appointment and send a skilled technician to your location.
+                      Llámanos o agenda tu consulta online. Te confirmaremos tu cita y enviaremos un experto capacitado a tu establecimiento.
                     </StepDescription>
                   </StepContent>
                   <StepConnector />
@@ -307,10 +307,10 @@ const WorkProcessSection: React.FC = () => {
                     <Build sx={{ color: COLORS.WHITE, fontSize: '24px' }} />
                   </StepIcon>
                   <StepContent>
-                    <StepNumber variant="body2">STEP-02</StepNumber>
-                    <StepTitle variant="h6">Professional inspection & repair</StepTitle>
+                    <StepNumber variant="body2">PASO-02</StepNumber>
+                    <StepTitle variant="h6">Evaluación profesional</StepTitle>
                     <StepDescription variant="body1">
-                      Our certified experts carefully diagnose the issue, explain the problem, and provide a transparent solution—whether it's repair, installation, or maintenance.
+                      Nuestros expertos certificados evalúan tu negocio, identifican oportunidades de mejora y te proporcionan soluciones transparentes para optimizar operaciones.
                     </StepDescription>
                   </StepContent>
                   <StepConnector />
@@ -321,10 +321,10 @@ const WorkProcessSection: React.FC = () => {
                     <ThumbUp sx={{ color: COLORS.WHITE, fontSize: '24px' }} />
                   </StepIcon>
                   <StepContent>
-                    <StepNumber variant="body2">STEP-03</StepNumber>
-                    <StepTitle variant="h6">Cool comfort restored</StepTitle>
+                    <StepNumber variant="body2">PASO-03</StepNumber>
+                    <StepTitle variant="h6">Éxito garantizado</StepTitle>
                     <StepDescription variant="body1">
-                      We complete the job efficiently and test your AC to ensure peak performance, so you can enjoy a perfectly cooled home or office.
+                      Implementamos las mejoras de manera eficiente y monitoreamos el progreso para asegurar el éxito de tu bar o restaurante con Asobares.
                     </StepDescription>
                   </StepContent>
                 </StepItem>

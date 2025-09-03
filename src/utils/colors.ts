@@ -1,6 +1,7 @@
 // Constantes de colores extraídas de la imagen del header
 export const COLORS = {
-  DARK_PURPLE: '#331A5C',
+  PRIMARY_DARK: '#134C4B',
+  PRIMARY_LIGHT: '#205656',
   WHITE: '#FFFFFF',
   LIGHT_GRAY: '#D3D3D3',
   LOGO_BLUE: '#007BFF',

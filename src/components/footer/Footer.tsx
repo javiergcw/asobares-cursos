@@ -23,7 +23,7 @@ import { COLORS } from '../../utils/colors';
 
 // Componentes estilizados
 const FooterContainer = styled(Box)({
-  backgroundColor: COLORS.DARK_PURPLE,
+  backgroundColor: COLORS.PRIMARY_DARK,
   color: COLORS.WHITE,
   padding: '60px 0 20px 0',
   '@media (max-width: 768px)': {
@@ -32,7 +32,7 @@ const FooterContainer = styled(Box)({
 });
 
 const CallToActionSection = styled(Box)({
-  backgroundColor: '#4A2B7A', // Ligeramente más claro que DARK_PURPLE
+  backgroundColor: COLORS.PRIMARY_LIGHT,
   borderRadius: '20px',
   padding: '40px',
   marginBottom: '60px',
@@ -94,7 +94,7 @@ const CallToActionContent = styled(Box)({
 });
 
 const BookButton = styled(Button)({
-  backgroundColor: COLORS.LOGO_ORANGE,
+  backgroundColor: COLORS.PRIMARY_DARK,
   color: COLORS.WHITE,
   borderRadius: '25px',
   padding: '12px 24px',
@@ -103,7 +103,7 @@ const BookButton = styled(Button)({
   fontWeight: 'bold',
   marginTop: '16px',
   '&:hover': {
-    backgroundColor: '#e55a00',
+    backgroundColor: COLORS.PRIMARY_LIGHT,
   },
   '@media (max-width: 768px)': {
     width: 'auto',
@@ -122,9 +122,11 @@ const FooterLink = styled(Typography)({
   color: COLORS.WHITE,
   marginBottom: '12px',
   cursor: 'pointer',
-  transition: 'color 0.3s ease',
+  transition: 'all 0.3s ease',
   '&:hover': {
-    color: COLORS.LOGO_ORANGE,
+    color: COLORS.WHITE,
+    transform: 'translateY(-2px)',
+    textShadow: '0 2px 8px rgba(255,255,255,0.3)',
   },
   '@media (max-width: 768px)': {
     marginBottom: '8px',
@@ -215,16 +217,16 @@ const SocialIcon = styled(Box)({
   height: '40px',
   borderRadius: '50%',
   backgroundColor: COLORS.WHITE,
-  border: `2px solid ${COLORS.DARK_PURPLE}`,
+          border: `2px solid ${COLORS.PRIMARY_DARK}`,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
   cursor: 'pointer',
   transition: 'all 0.3s ease',
   '&:hover': {
-    backgroundColor: COLORS.LOGO_ORANGE,
-    borderColor: COLORS.LOGO_ORANGE,
-    color: COLORS.WHITE,
+    '& > *': {
+      color: COLORS.PRIMARY_LIGHT,
+    },
   },
 });
 
@@ -232,53 +234,12 @@ const Footer: React.FC = () => {
   return (
     <FooterContainer>
       <Container maxWidth="xl">
-        {/* Sección de Call to Action */}
-        <CallToActionSection>
-          <LogoContainer>
-            <Logo />
-            <Box>
-                             <Typography
-                 variant="h4"
-                 component="div"
-                 sx={{
-                   fontWeight: 'bold',
-                   color: COLORS.WHITE,
-                   lineHeight: 1,
-                 }}
-               >
-                 ASOBARES
-               </Typography>
-               <Typography
-                 variant="h4"
-                 component="div"
-                 sx={{
-                   fontWeight: 'bold',
-                   color: COLORS.WHITE,
-                   lineHeight: 1,
-                 }}
-               >
-                 CURSOS
-               </Typography>
-            </Box>
-          </LogoContainer>
 
-          <CallToActionContent>
-            <Typography variant="body1" sx={{ color: COLORS.WHITE, marginBottom: '8px' }}>
-              BOOK US
-            </Typography>
-            <Typography variant="h4" sx={{ fontWeight: 'bold', color: COLORS.WHITE, marginBottom: '16px' }}>
-              Still have questions?
-            </Typography>
-            <BookButton endIcon={<ArrowForward />}>
-              BOOK AN APPOINTMENT
-            </BookButton>
-          </CallToActionContent>
-        </CallToActionSection>
 
         {/* Columnas de información */}
         <Box sx={{ 
           display: 'grid', 
-          gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' }, 
+          gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)' }, 
           gap: { xs: 2, sm: 3, md: 4 } 
         }}>
           {/* Quick Links */}
@@ -287,13 +248,12 @@ const Footer: React.FC = () => {
               fontWeight: 'bold', 
               marginBottom: { xs: '16px', md: '20px' } 
             }}>
-              Quick Links
+              Enlaces Rápidos
             </Typography>
-            <FooterLink>Home</FooterLink>
-            <FooterLink>About Us</FooterLink>
-            <FooterLink>Services</FooterLink>
-            <FooterLink>Finance</FooterLink>
-            <FooterLink>Maintenance</FooterLink>
+                         <FooterLink>Inicio</FooterLink>
+             <FooterLink>Nosotros</FooterLink>
+             <FooterLink>Cursos</FooterLink>
+             <FooterLink>Contacto</FooterLink>
           </FooterColumn>
 
           {/* Legal */}
@@ -304,9 +264,9 @@ const Footer: React.FC = () => {
             }}>
               Legal
             </Typography>
-            <FooterLink>Terms of Condition</FooterLink>
-            <FooterLink>Refund Policy</FooterLink>
-            <FooterLink>Privacy & Policy</FooterLink>
+            <FooterLink>Términos y Condiciones</FooterLink>
+            <FooterLink>Política de Reembolso</FooterLink>
+            <FooterLink>Política de Privacidad</FooterLink>
           </FooterColumn>
 
           {/* Get Support */}
@@ -315,37 +275,20 @@ const Footer: React.FC = () => {
               fontWeight: 'bold', 
               marginBottom: { xs: '16px', md: '20px' } 
             }}>
-              Get Support
+              Contacto
             </Typography>
             <ContactItem>
-              <LocationOn sx={{ color: COLORS.LOGO_ORANGE }} />
-              <Typography>3146 Koontz Lane, TAMPA</Typography>
+              <LocationOn sx={{ color: COLORS.WHITE }} />
+              <Typography>Bogotá, Colombia</Typography>
             </ContactItem>
             <ContactItem>
-              <Email sx={{ color: COLORS.LOGO_ORANGE }} />
-              <Typography>info@thandaservicing.com</Typography>
+              <Email sx={{ color: COLORS.WHITE }} />
+              <Typography>info@asobarescursos.com</Typography>
             </ContactItem>
             <ContactItem>
-              <Phone sx={{ color: COLORS.LOGO_ORANGE }} />
-              <Typography>(800)-236-8937</Typography>
+              <Phone sx={{ color: COLORS.WHITE }} />
+              <Typography>+57 300 123 4567</Typography>
             </ContactItem>
-          </FooterColumn>
-
-          {/* We Accept */}
-          <FooterColumn>
-            <Typography variant="h6" sx={{ 
-              fontWeight: 'bold', 
-              marginBottom: { xs: '16px', md: '20px' } 
-            }}>
-              We accept
-            </Typography>
-            <PaymentMethodContainer>
-              <VisaLogo>VISA</VisaLogo>
-              <StripeLogo>Stripe</StripeLogo>
-              <PayPalLogo>PayPal</PayPalLogo>
-              <MastercardLogo>MC</MastercardLogo>
-              <GPayLogo>GPay</GPayLogo>
-            </PaymentMethodContainer>
           </FooterColumn>
         </Box>
 
@@ -355,17 +298,17 @@ const Footer: React.FC = () => {
              Copyright 2025 AsoBares Cursos.
            </Typography>
           
-          <SocialMediaContainer>
-            <SocialIcon>
-              <Facebook sx={{ color: COLORS.DARK_PURPLE }} />
-            </SocialIcon>
-            <SocialIcon>
-              <Twitter sx={{ color: COLORS.DARK_PURPLE }} />
-            </SocialIcon>
-            <SocialIcon>
-              <YouTube sx={{ color: COLORS.DARK_PURPLE }} />
-            </SocialIcon>
-          </SocialMediaContainer>
+                                 <SocialMediaContainer>
+              <SocialIcon>
+                                <Facebook sx={{ color: COLORS.PRIMARY_DARK }} />
+              </SocialIcon>
+              <SocialIcon>
+                                <Twitter sx={{ color: COLORS.PRIMARY_DARK }} />
+              </SocialIcon>
+              <SocialIcon>
+                                <YouTube sx={{ color: COLORS.PRIMARY_DARK }} />
+              </SocialIcon>
+            </SocialMediaContainer>
         </BottomBar>
       </Container>
     </FooterContainer>

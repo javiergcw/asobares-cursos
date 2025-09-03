@@ -22,7 +22,7 @@ const HeroContainer = styled(Box)({
   position: 'relative',
   width: '100%',
   minHeight: '100vh',
-  backgroundImage: 'url(/img/image.webp)',
+  backgroundImage: 'url(/img/restaurantes.webp)',
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   backgroundRepeat: 'no-repeat',
@@ -35,7 +35,7 @@ const HeroContainer = styled(Box)({
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'rgba(51, 26, 92, 0.7)', // DARK_PURPLE con transparencia
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
     zIndex: 1,
   },
   '@media (max-width: 768px)': {
@@ -54,9 +54,9 @@ const HeroContent = styled(Box)({
 const ContentWrapper = styled(Box)({
   display: 'flex',
   flexDirection: 'column',
-  gap: '24px',
+  gap: '20px',
   '@media (max-width: 768px)': {
-    gap: '32px',
+    gap: '24px',
   },
 });
 
@@ -70,27 +70,27 @@ const LeftContent = styled(Box)({
 });
 
 const FastReliable = styled(Typography)({
-  fontSize: '18px',
+  fontSize: '14px',
   fontWeight: '600',
-  textTransform: 'uppercase',
-  letterSpacing: '2px',
-  marginBottom: '16px',
+  textTransform: 'none',
+  letterSpacing: '1.5px',
+  marginBottom: '12px',
   color: COLORS.WHITE,
   '@media (max-width: 768px)': {
-    fontSize: '16px',
-    marginBottom: '12px',
+    fontSize: '13px',
+    marginBottom: '10px',
   },
 });
 
 const MainHeadline = styled(Typography)({
-  fontSize: '3.5rem',
+  fontSize: '2.8rem',
   fontWeight: 'bold',
   lineHeight: 1.2,
-  marginBottom: '20px',
+  marginBottom: '16px',
   color: COLORS.WHITE,
   '@media (max-width: 768px)': {
-    fontSize: '2rem',
-    marginBottom: '16px',
+    fontSize: '1.8rem',
+    marginBottom: '14px',
     lineHeight: 1.3,
   },
 });
@@ -98,23 +98,25 @@ const MainHeadline = styled(Typography)({
 
 
 const ViewServicesButton = styled(Button)({
-  backgroundColor: COLORS.LOGO_ORANGE,
+  backgroundColor: COLORS.PRIMARY_DARK,
   color: COLORS.WHITE,
-  borderRadius: '25px',
-  padding: '16px 32px',
+  borderRadius: '20px',
+  padding: '12px 24px',
   textTransform: 'none',
-  fontSize: '18px',
+  fontSize: '16px',
   fontWeight: 'bold',
-  marginTop: '16px',
-  marginBottom: '16px',
+  marginTop: '12px',
+  marginBottom: '12px',
+  height: '56px',
   '&:hover': {
-    backgroundColor: '#e55a00',
+    backgroundColor: COLORS.PRIMARY_LIGHT,
   },
   '@media (max-width: 768px)': {
-    padding: '14px 24px',
-    fontSize: '16px',
+    padding: '12px 20px',
+    fontSize: '15px',
     width: '100%',
-    maxWidth: '300px',
+    maxWidth: '280px',
+    height: '56px',
   },
 });
 
@@ -123,44 +125,44 @@ const ViewServicesButton = styled(Button)({
 // Formulario de estimación rápida
 const EstimateForm = styled(Box)({
   backgroundColor: COLORS.WHITE,
-  borderRadius: '20px',
-  padding: '24px',
-  boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
+  borderRadius: '16px',
+  padding: '20px',
+  boxShadow: '0 8px 25px rgba(0,0,0,0.15)',
   width: '100%',
   '@media (max-width: 768px)': {
-    padding: '20px',
-    borderRadius: '16px',
+    padding: '16px',
+    borderRadius: '14px',
   },
 });
 
 const FormTitle = styled(Typography)({
-  fontSize: '20px',
+  fontSize: '18px',
   fontWeight: 'bold',
   color: COLORS.DARK_TEXT,
-  marginBottom: '16px',
+  marginBottom: '14px',
   textAlign: 'left',
   '@media (max-width: 768px)': {
-    fontSize: '18px',
-    marginBottom: '20px',
+    fontSize: '16px',
+    marginBottom: '16px',
     textAlign: 'center',
   },
 });
 
 const FormField = styled(Box)({
-  marginBottom: '16px',
+  marginBottom: '14px',
   flex: '1',
-  minWidth: '200px',
+  minWidth: '180px',
   '@media (max-width: 768px)': {
     minWidth: '100%',
-    marginBottom: '20px',
+    marginBottom: '16px',
   },
 });
 
 const FieldLabel = styled(Typography)({
-  fontSize: '14px',
+  fontSize: '12px',
   fontWeight: '600',
   color: COLORS.DARK_TEXT,
-  marginBottom: '8px',
+  marginBottom: '6px',
   textTransform: 'uppercase',
 });
 
@@ -180,23 +182,23 @@ const StyledTextField = styled(TextField)({
 });
 
 const SubmitButton = styled(Button)({
-  backgroundColor: COLORS.LOGO_ORANGE,
+  backgroundColor: COLORS.PRIMARY_DARK,
   color: COLORS.WHITE,
-  borderRadius: '12px',
-  padding: '12px 24px',
+  borderRadius: '10px',
+  padding: '10px 20px',
   textTransform: 'none',
-  fontSize: '16px',
+  fontSize: '14px',
   fontWeight: 'bold',
-  minWidth: '120px',
-  height: '48px',
+  minWidth: '100px',
+  height: '56px',
   '&:hover': {
-    backgroundColor: '#e55a00',
+    backgroundColor: COLORS.PRIMARY_LIGHT,
   },
   '@media (max-width: 768px)': {
     width: '100%',
     height: '56px',
-    fontSize: '18px',
-    padding: '16px 24px',
+    fontSize: '16px',
+    padding: '14px 20px',
   },
 });
 
@@ -228,23 +230,23 @@ const HeroSection: React.FC = () => {
           <ContentWrapper>
             {/* Contenido izquierdo */}
             <LeftContent>
-              <FastReliable variant="body1">
-                FAST & RELIABLE
-              </FastReliable>
+                             <FastReliable variant="body1">
+                 Formación profesional
+               </FastReliable>
               
               <MainHeadline variant="h1">
-                Precision cooling for perfect comfort.
+                Capacítate en el arte de la gastronomía y el servicio al cliente.
               </MainHeadline>
               
-              <ViewServicesButton endIcon={<ArrowForward />}>
-                VIEW OUR SERVICES 
-              </ViewServicesButton>
+                             <ViewServicesButton endIcon={<ArrowForward />}>
+                 Ver nuestros cursos
+               </ViewServicesButton>
             </LeftContent>
 
             {/* Formulario de estimación rápida */}
             <EstimateForm as="form" onSubmit={handleSubmit}>
               <FormTitle>
-                Get a quick estimate
+                Solicita información de nuestros cursos
               </FormTitle>
               
               <Box sx={{ 
@@ -258,10 +260,10 @@ const HeroSection: React.FC = () => {
                 }
               }}>
                 <FormField>
-                  <FieldLabel>NAME</FieldLabel>
+                  <FieldLabel>NOMBRE</FieldLabel>
                   <StyledTextField
                     fullWidth
-                    placeholder="Enter your name"
+                    placeholder="Ingresa tu nombre completo"
                     value={formData.name}
                     onChange={handleInputChange('name')}
                     variant="outlined"
@@ -269,10 +271,10 @@ const HeroSection: React.FC = () => {
                 </FormField>
                 
                 <FormField>
-                  <FieldLabel>PHONE</FieldLabel>
+                  <FieldLabel>TELÉFONO</FieldLabel>
                   <StyledTextField
                     fullWidth
-                    placeholder="Enter your phone number"
+                    placeholder="Ingresa tu número telefónico"
                     value={formData.phone}
                     onChange={handleInputChange('phone')}
                     variant="outlined"
@@ -280,10 +282,10 @@ const HeroSection: React.FC = () => {
                 </FormField>
                 
                 <FormField>
-                  <FieldLabel>EMAIL</FieldLabel>
+                  <FieldLabel>CORREO</FieldLabel>
                   <StyledTextField
                     fullWidth
-                    placeholder="Enter email address"
+                    placeholder="Ingresa tu correo electrónico"
                     value={formData.email}
                     onChange={handleInputChange('email')}
                     variant="outlined"
@@ -291,25 +293,28 @@ const HeroSection: React.FC = () => {
                 </FormField>
                 
                 <FormField>
-                  <FieldLabel>SELECT SERVICE</FieldLabel>
+                  <FieldLabel>SELECCIONA CURSO</FieldLabel>
                   <StyledTextField
                     fullWidth
                     select
-                    placeholder="Select your service"
+                    placeholder="Selecciona el curso de tu interés"
                     value={formData.service}
                     onChange={handleInputChange('service')}
                     variant="outlined"
                   >
-                    <MenuItem value="hvac">HVAC Services</MenuItem>
-                    <MenuItem value="plumbing">Plumbing</MenuItem>
-                    <MenuItem value="electrical">Electrical</MenuItem>
-                    <MenuItem value="maintenance">Maintenance</MenuItem>
+                    <MenuItem value="bartender">Bartender Profesional</MenuItem>
+                    <MenuItem value="mesero">Servicio de Mesero</MenuItem>
+                    <MenuItem value="cocina">Cocina Básica</MenuItem>
+                    <MenuItem value="atencion">Atención al Cliente</MenuItem>
                   </StyledTextField>
                 </FormField>
                 
-                <SubmitButton type="submit" endIcon={<ArrowForward />}>
-                  SUBMIT →
-                </SubmitButton>
+                                                  <FormField sx={{ flex: '0.3' }}>
+                   <Box sx={{ height: '18px' }} /> {/* Espacio para simular la etiqueta */}
+                   <SubmitButton type="submit" endIcon={<ArrowForward />} sx={{ width: '100%' }}>
+                     Enviar 
+                   </SubmitButton>
+                 </FormField>
               </Box>
             </EstimateForm>
           </ContentWrapper>

@@ -98,7 +98,6 @@ const ImageContainer = styled(Box)({
 const TechImage = styled(Box)({
   width: '100%',
   height: '100%',
-  backgroundImage: 'url(/img/image.webp)',
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   backgroundRepeat: 'no-repeat',
@@ -108,6 +107,18 @@ const TechImage = styled(Box)({
   '@media (max-width: 480px)': {
     height: '150px',
   },
+});
+
+const TechImage1 = styled(TechImage)({
+  backgroundImage: 'url(/img/mesero_sonriendo.webp)',
+});
+
+const TechImage2 = styled(TechImage)({
+  backgroundImage: 'url(/img/restaurantes.webp)',
+});
+
+const TechImage3 = styled(TechImage)({
+  backgroundImage: 'url(/img/restaurente.webp)',
 });
 
 const TextSection = styled(Box)({
@@ -144,7 +155,7 @@ const AboutHeader = styled(Typography)({
 const MainHeadline = styled(Typography)({
   fontSize: '3rem',
   fontWeight: 'bold',
-  color: COLORS.DARK_PURPLE,
+  color: COLORS.PRIMARY_DARK,
   lineHeight: 1.2,
   marginBottom: '24px',
   '@media (max-width: 768px)': {
@@ -188,7 +199,7 @@ const BulletPoint = styled(Box)({
 const OrangeArrow = styled(Box)({
   width: '20px',
   height: '20px',
-  backgroundColor: COLORS.LOGO_ORANGE,
+  backgroundColor: COLORS.PRIMARY_DARK,
   borderRadius: '50%',
   display: 'flex',
   alignItems: 'center',
@@ -248,7 +259,7 @@ const LogoImage = styled(Box)({
 });
 
 const HireUsButton = styled(Button)({
-  backgroundColor: COLORS.LOGO_ORANGE,
+  backgroundColor: COLORS.PRIMARY_DARK,
   color: COLORS.WHITE,
   borderRadius: '25px',
   padding: '16px 32px',
@@ -256,7 +267,7 @@ const HireUsButton = styled(Button)({
   fontSize: '18px',
   fontWeight: 'bold',
   '&:hover': {
-    backgroundColor: '#e55a00',
+    backgroundColor: COLORS.PRIMARY_LIGHT,
   },
   '@media (max-width: 768px)': {
     padding: '14px 24px',
@@ -299,7 +310,7 @@ const CallText = styled(Typography)({
 const PhoneNumber = styled(Typography)({
   fontSize: '1.5rem',
   fontWeight: 'bold',
-  color: COLORS.DARK_PURPLE,
+  color: COLORS.PRIMARY_DARK,
   lineHeight: '1',
   marginTop: '0',
   '@media (max-width: 768px)': {
@@ -318,70 +329,52 @@ const AboutCompany: React.FC = () => {
           {/* Sección Visual Izquierda */}
           <VisualSection>
             <ImageContainer>
-              <TechImage />
+              <TechImage1 />
             </ImageContainer>
             <ImageContainer>
-              <TechImage />
+              <TechImage2 />
             </ImageContainer>
             <ImageContainer>
-              <TechImage />
+              <TechImage3 />
             </ImageContainer>
           </VisualSection>
 
           {/* Sección de Texto Derecha */}
           <TextSection>
             <AboutHeader variant="body2">
-              ABOUT COMPANY
+              SOBRE NOSOTROS
             </AboutHeader>
             
             <MainHeadline variant="h2">
-              We are most popular repair company
+              Formamos los mejores profesionales de la hostelería
             </MainHeadline>
             
             <Description variant="body1">
-              With years of expertise, we deliver reliable AC repair and maintenance, ensuring fast, safe, and efficient service for your comfort.
+              Con años de experiencia en la industria gastronómica, ofrecemos cursos especializados en bartending, atención al cliente y gestión de restaurantes para formar profesionales altamente calificados.
             </Description>
             
             <BulletPoint>
               <OrangeArrow>
                 <ArrowForward sx={{ color: COLORS.WHITE, fontSize: '14px' }} />
               </OrangeArrow>
-              <BulletText>Fast Fixes, Affordable Prices</BulletText>
+              <BulletText>Cursos de Bartending Profesional</BulletText>
             </BulletPoint>
             
             <BulletPoint>
               <OrangeArrow>
                 <ArrowForward sx={{ color: COLORS.WHITE, fontSize: '14px' }} />
               </OrangeArrow>
-              <BulletText>Reliable Plumbing Solutions Guaranteed</BulletText>
+              <BulletText>Excelencia en Atención al Cliente</BulletText>
             </BulletPoint>
             
             <BulletPoint>
               <OrangeArrow>
                 <ArrowForward sx={{ color: COLORS.WHITE, fontSize: '14px' }} />
               </OrangeArrow>
-              <BulletText>24/7 Emergency Support</BulletText>
+              <BulletText>Certificaciones Internacionales</BulletText>
             </BulletPoint>
             
-            <LogosContainer>
-              <LogoItem>
-                <LogoImage />
-              </LogoItem>
-              <LogoItem>
-                <LogoImage />
-              </LogoItem>
-              <LogoItem>
-                <LogoImage />
-              </LogoItem>
-              <LogoItem>
-                <LogoImage />
-              </LogoItem>
-              <LogoItem>
-                <LogoImage />
-              </LogoItem>
-            </LogosContainer>
-            
-                         <Box sx={{ 
+            <Box sx={{ 
                display: 'flex', 
                alignItems: 'center',
                '@media (max-width: 768px)': {
@@ -390,12 +383,12 @@ const AboutCompany: React.FC = () => {
                }
              }}>
                <HireUsButton endIcon={<ArrowForward />}>
-                 HIRE US TODAY
+                 Inscribirse hoy
                </HireUsButton>
                
                <PhoneSection>
                  <CallText variant="body2">
-                   GIVE US A CALL
+                   LLÁMENOS AHORA
                  </CallText>
                  <PhoneNumber variant="h3">
                    (800)-236-8937

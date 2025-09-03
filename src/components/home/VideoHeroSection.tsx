@@ -59,7 +59,7 @@ const VideoSection = styled(Box)({
 const BackgroundImage = styled(Box)({
   width: '100%',
   height: '100%',
-  backgroundImage: 'url(/img/image.webp)',
+  backgroundImage: 'url(/img/bar.webp)',
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   backgroundRepeat: 'no-repeat',
@@ -71,7 +71,7 @@ const BackgroundImage = styled(Box)({
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'rgba(51, 26, 92, 0.6)',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
     zIndex: 1,
   },
 });
@@ -112,7 +112,7 @@ const MotivationalText = styled(Typography)({
 });
 
 const HighlightedWord = styled('span')({
-  color: COLORS.LOGO_ORANGE,
+  color: COLORS.PRIMARY_LIGHT,
 });
 
 const PlayButtonContainer = styled(Box)({
@@ -124,12 +124,12 @@ const PlayButton = styled(Button)({
   width: '80px',
   height: '80px',
   borderRadius: '50%',
-  backgroundColor: COLORS.LOGO_ORANGE,
+  backgroundColor: COLORS.PRIMARY_DARK,
   color: COLORS.WHITE,
   border: '4px solid rgba(255, 255, 255, 0.3)',
-  boxShadow: '0 8px 25px rgba(255, 102, 0, 0.4)',
+  boxShadow: '0 8px 25px rgba(19, 76, 75, 0.4)',
   '&:hover': {
-    backgroundColor: '#e55a00',
+    backgroundColor: COLORS.PRIMARY_LIGHT,
     transform: 'scale(1.05)',
   },
   transition: 'all 0.3s ease',
@@ -247,9 +247,9 @@ const VideoHeroSection: React.FC = () => {
             <BackgroundImage />
             <ContentOverlay>
               <MotivationalText variant="h1">
-                Getting the job done—no matter where, no<br />
-                matter how <HighlightedWord>big</HighlightedWord> or <HighlightedWord>small</HighlightedWord>. What truly<br />
-                matters is staying <HighlightedWord>positive</HighlightedWord>.
+                ¿Qué es <HighlightedWord>Asobares</HighlightedWord>?<br />
+                Su presidente <HighlightedWord>Camilo Ospina</HighlightedWord> te explica<br />
+                todo sobre nuestra asociación.
               </MotivationalText>
               
               <PlayButtonContainer>
@@ -275,8 +275,8 @@ const VideoHeroSection: React.FC = () => {
             <Close />
           </CloseButton>
           <VideoFrame
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
-            title="AC Repair Service Video"
+            src="https://www.youtube.com/embed/RooXvxlmN4s?autoplay=1"
+            title="¿Qué es Asobares? - Camilo Ospina Presidente"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />

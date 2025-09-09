@@ -23,5 +23,5 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-  padding-top: 80px; /* Compensar el header fijo (solo MainNavBar) */
+  padding-top: 60px; /* Compensar el header fijo (solo MainNavBar) */
 }

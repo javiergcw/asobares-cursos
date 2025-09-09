@@ -260,7 +260,7 @@ const StepConnector = styled(Box)({
 
 const WorkProcessSection: React.FC = () => {
   return (
-    <WorkProcessContainer>
+    <WorkProcessContainer id="work-process">
       <Container maxWidth="xl">
         <ContentWrapper>
           {/* Header centrado arriba */}

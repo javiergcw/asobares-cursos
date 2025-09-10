@@ -323,7 +323,7 @@ const PhoneNumber = styled(Typography)({
 
 const AboutCompany: React.FC = () => {
   return (
-    <AboutContainer>
+    <AboutContainer id="about">
       <Container maxWidth="xl">
         <ContentWrapper>
           {/* Sección Visual Izquierda */}
@@ -382,7 +382,15 @@ const AboutCompany: React.FC = () => {
                  alignItems: 'stretch',
                }
              }}>
-               <HireUsButton endIcon={<ArrowForward />}>
+               <HireUsButton 
+                 endIcon={<ArrowForward />}
+                 onClick={() => {
+                   const phoneNumber = '3232191837'; // Número sin espacios ni guiones
+                   const message = 'Hola estoy interesado en curso de bartending';
+                   const whatsappUrl = `https://wa.me/57${phoneNumber}?text=${encodeURIComponent(message)}`;
+                   window.open(whatsappUrl, '_blank');
+                 }}
+               >
                  Inscribirse hoy
                </HireUsButton>
                
@@ -391,7 +399,7 @@ const AboutCompany: React.FC = () => {
                    LLÁMENOS AHORA
                  </CallText>
                  <PhoneNumber variant="h3">
-                   (800)-236-8937
+                   323 2191837
                  </PhoneNumber>
                </PhoneSection>
              </Box>

@@ -253,12 +253,17 @@ const servicesData = [
 
 const ServicesSection: React.FC = () => {
   const handleBookService = (serviceId: number) => {
-    console.log(`Booking service: ${serviceId}`);
-    // Aquí iría la lógica para reservar el servicio
+    const service = servicesData.find(s => s.id === serviceId);
+    if (service) {
+      const phoneNumber = '3232191837'; // Número sin espacios ni guiones
+      const message = `Hola estoy interesado en el curso de ${service.title}`;
+      const whatsappUrl = `https://wa.me/57${phoneNumber}?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+    }
   };
 
   return (
-    <ServicesContainer>
+    <ServicesContainer id="services">
       <Container maxWidth="xl">
         <ContentWrapper>
           {/* Header Section */}

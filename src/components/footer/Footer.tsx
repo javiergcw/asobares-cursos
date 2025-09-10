@@ -231,6 +231,18 @@ const SocialIcon = styled(Box)({
 });
 
 const Footer: React.FC = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offset = sectionId === 'partners' ? 100 : sectionId === 'services' ? 100 : sectionId === 'hero' ? 100 : sectionId === 'about' ? 100 : sectionId === 'work-process' ? 60 : 0;
+      const elementPosition = element.offsetTop - offset;
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <FooterContainer>
       <Container maxWidth="xl">
@@ -250,10 +262,11 @@ const Footer: React.FC = () => {
             }}>
               Enlaces Rápidos
             </Typography>
-                         <FooterLink>Inicio</FooterLink>
-             <FooterLink>Nosotros</FooterLink>
-             <FooterLink>Cursos</FooterLink>
-             <FooterLink>Contacto</FooterLink>
+            <FooterLink onClick={() => scrollToSection('hero')}>Inicio</FooterLink>
+            <FooterLink onClick={() => scrollToSection('about')}>Nosotros</FooterLink>
+            <FooterLink onClick={() => scrollToSection('services')}>Cursos</FooterLink>
+            <FooterLink onClick={() => scrollToSection('work-process')}>Proceso de Trabajo</FooterLink>
+            <FooterLink onClick={() => scrollToSection('partners')}>Aliados</FooterLink>
           </FooterColumn>
 
           {/* Legal */}
@@ -264,9 +277,12 @@ const Footer: React.FC = () => {
             }}>
               Legal
             </Typography>
-            <FooterLink>Términos y Condiciones</FooterLink>
-            <FooterLink>Política de Reembolso</FooterLink>
-            <FooterLink>Política de Privacidad</FooterLink>
+            <FooterLink 
+              onClick={() => window.open('/terminos-capacitu.pdf', '_blank')}
+              sx={{ cursor: 'pointer' }}
+            >
+              Términos y Condiciones
+            </FooterLink>
           </FooterColumn>
 
           {/* Get Support */}
@@ -279,7 +295,7 @@ const Footer: React.FC = () => {
             </Typography>
             <ContactItem>
               <LocationOn sx={{ color: COLORS.WHITE }} />
-              <Typography>Bogotá, Colombia</Typography>
+              <Typography>Santa Marta, Colombia</Typography>
             </ContactItem>
             <ContactItem>
               <Email sx={{ color: COLORS.WHITE }} />
@@ -287,7 +303,7 @@ const Footer: React.FC = () => {
             </ContactItem>
             <ContactItem>
               <Phone sx={{ color: COLORS.WHITE }} />
-              <Typography>+57 300 123 4567</Typography>
+              <Typography>323 2191837</Typography>
             </ContactItem>
           </FooterColumn>
         </Box>

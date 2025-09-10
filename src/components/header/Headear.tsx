@@ -19,7 +19,6 @@ import {
 } from '@mui/material';
 import {
   Phone,
-  KeyboardArrowDown,
   Menu as MenuIcon,
 } from '@mui/icons-material';
 
@@ -60,7 +59,7 @@ const Logo = styled(Box)({
   justifyContent: 'center',
   position: 'relative',
   '@media (max-width: 768px)': {
-    width: '60px',
+    width: '120px',
     height: '60px',
   },
 });
@@ -122,6 +121,19 @@ const Header: React.FC = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offset =  sectionId === 'partners' ? 100 : sectionId === 'services' ? 100 : sectionId === 'hero' ? 100 : sectionId === 'about' ? 100 : sectionId === 'work-process' ?  60 : 0 ; // Offset adicional para "Nosotros" y "Aliados"
+      const elementPosition = element.offsetTop - offset;
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+    }
+    setMobileMenuOpen(false);
+  };
+
   return (
     <>
       {/* Barra principal de navegación */}
@@ -145,15 +157,11 @@ const Header: React.FC = () => {
 
             {/* Enlaces de navegación - Desktop */}
             <Box display="flex" gap={2} sx={{ '@media (max-width: 768px)': { display: 'none' } }}>
-              <NavigationLink>Inicio</NavigationLink>
-              <NavigationLink>Nosotros</NavigationLink>
-              <NavigationLink
-                onClick={handleServicesClick}
-                endIcon={<KeyboardArrowDown />}
-              >
-                Cursos
-              </NavigationLink>
-              <NavigationLink>Contacto</NavigationLink>
+              <NavigationLink onClick={() => scrollToSection('hero')}>Inicio</NavigationLink>
+              <NavigationLink onClick={() => scrollToSection('about')}>Nosotros</NavigationLink>
+              <NavigationLink onClick={() => scrollToSection('services')}>Cursos</NavigationLink>
+              <NavigationLink onClick={() => scrollToSection('work-process')}>Proceso de Trabajo</NavigationLink>
+              <NavigationLink onClick={() => scrollToSection('partners')}>Aliados</NavigationLink>
             </Box>
 
             {/* Botón de menú móvil */}
@@ -161,7 +169,7 @@ const Header: React.FC = () => {
               onClick={handleMobileMenuToggle}
               sx={{ 
                 display: { xs: 'flex', md: 'none' },
-                color: COLORS.WHITE 
+                color: COLORS.DARK_TEXT 
               }}
             >
               <MenuIcon />
@@ -195,7 +203,7 @@ const Header: React.FC = () => {
                 <PhoneIconContainer>
                   <Phone sx={{ color: COLORS.PRIMARY_DARK }} />
                 </PhoneIconContainer>
-                (800)-236-8937
+                323 2191837
               </PhoneButton>
             </Box>
           </Toolbar>
@@ -215,31 +223,34 @@ const Header: React.FC = () => {
           },
         }}
       >
-        <Box sx={{ padding: '20px 0' }}>
-                        <Typography variant="h6" sx={{ fontWeight: 'bold', marginBottom: '24px', color: COLORS.PRIMARY_DARK }}>
+        <Box sx={{ padding: '10px 0' }}>
+                        <Typography variant="h6" sx={{ fontWeight: 'bold', marginBottom: '16px', color: COLORS.PRIMARY_DARK }}>
             Menú
           </Typography>
           <List>
-            <ListItem onClick={handleMobileMenuToggle} sx={{ cursor: 'pointer', '&:hover': { backgroundColor: '#f5f5f5' } }}>
+            <ListItem onClick={() => scrollToSection('hero')} sx={{ cursor: 'pointer', '&:hover': { backgroundColor: '#f5f5f5' } }}>
               <ListItemText primary="Inicio" />
             </ListItem>
-            <ListItem onClick={handleMobileMenuToggle} sx={{ cursor: 'pointer', '&:hover': { backgroundColor: '#f5f5f5' } }}>
+            <ListItem onClick={() => scrollToSection('about')} sx={{ cursor: 'pointer', '&:hover': { backgroundColor: '#f5f5f5' } }}>
               <ListItemText primary="Nosotros" />
             </ListItem>
-            <ListItem onClick={handleMobileMenuToggle} sx={{ cursor: 'pointer', '&:hover': { backgroundColor: '#f5f5f5' } }}>
+            <ListItem onClick={() => scrollToSection('services')} sx={{ cursor: 'pointer', '&:hover': { backgroundColor: '#f5f5f5' } }}>
               <ListItemText primary="Cursos" />
             </ListItem>
-            <ListItem onClick={handleMobileMenuToggle} sx={{ cursor: 'pointer', '&:hover': { backgroundColor: '#f5f5f5' } }}>
-              <ListItemText primary="Contacto" />
+            <ListItem onClick={() => scrollToSection('work-process')} sx={{ cursor: 'pointer', '&:hover': { backgroundColor: '#f5f5f5' } }}>
+              <ListItemText primary="Proceso de Trabajo" />
+            </ListItem>
+            <ListItem onClick={() => scrollToSection('partners')} sx={{ cursor: 'pointer', '&:hover': { backgroundColor: '#f5f5f5' } }}>
+              <ListItemText primary="Aliados" />
             </ListItem>
           </List>
           
-          <Box sx={{ marginTop: '32px', textAlign: 'center' }}>
+          <Box sx={{ marginTop: '16px', textAlign: 'center' }}>
             <PhoneButton sx={{ width: '100%' }}>
               <PhoneIconContainer>
                 <Phone sx={{ color: COLORS.PRIMARY_DARK }} />
               </PhoneIconContainer>
-              (800)-236-8937
+              323 2191837
             </PhoneButton>
           </Box>
         </Box>

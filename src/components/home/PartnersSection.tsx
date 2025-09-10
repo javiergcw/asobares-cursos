@@ -220,7 +220,7 @@ const partnerLogos = [
 
 const PartnersSection: React.FC = () => {
   return (
-    <PartnersContainer>
+    <PartnersContainer id="partners">
       <Container maxWidth="xl">
         <ContentWrapper>
           {/* Header Section */}

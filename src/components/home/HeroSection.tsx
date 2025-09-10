@@ -9,9 +9,13 @@ import {
   TextField,
   MenuItem,
   styled,
+  Dialog,
+  DialogContent,
+  DialogActions,
 } from '@mui/material';
 import {
   ArrowForward,
+  CheckCircle,
 } from '@mui/icons-material';
 
 // Importar constantes de colores
@@ -202,6 +206,42 @@ const SubmitButton = styled(Button)({
   },
 });
 
+const ErrorText = styled(Typography)({
+  fontSize: '12px',
+  color: '#d32f2f',
+  marginTop: '4px',
+  marginLeft: '4px',
+});
+
+const SuccessDialog = styled(Dialog)({
+  '& .MuiDialog-paper': {
+    borderRadius: '16px',
+    padding: '20px',
+    textAlign: 'center',
+    maxWidth: '400px',
+    width: '90%',
+  },
+});
+
+const SuccessIcon = styled(CheckCircle)({
+  fontSize: '60px',
+  color: '#4caf50',
+  marginBottom: '16px',
+});
+
+const SuccessTitle = styled(Typography)({
+  fontSize: '20px',
+  fontWeight: 'bold',
+  color: '#2e7d32',
+  marginBottom: '12px',
+});
+
+const SuccessMessage = styled(Typography)({
+  fontSize: '16px',
+  color: '#666',
+  lineHeight: 1.5,
+});
+
 const HeroSection: React.FC = () => {
   const [formData, setFormData] = React.useState({
     name: '',
@@ -209,6 +249,15 @@ const HeroSection: React.FC = () => {
     email: '',
     service: '',
   });
+
+  const [errors, setErrors] = React.useState({
+    name: '',
+    phone: '',
+    email: '',
+    service: '',
+  });
+
+  const [showSuccessDialog, setShowSuccessDialog] = React.useState(false);
 
   const handleInputChange = (field: string) => (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -219,28 +268,106 @@ const HeroSection: React.FC = () => {
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    console.log('Form submitted:', formData);
-    // Aquí iría la lógica para enviar el formulario
+
+    // Limpiar errores y mensaje de éxito anteriores
+    setErrors({
+      name: '',
+      phone: '',
+      email: '',
+      service: '',
+    });
+    setShowSuccessDialog(false);
+
+    let hasErrors = false;
+    const newErrors = {
+      name: '',
+      phone: '',
+      email: '',
+      service: '',
+    };
+
+    // Validar campos requeridos
+    if (!formData.name.trim()) {
+      newErrors.name = 'Por favor ingresa tu nombre';
+      hasErrors = true;
+    }
+
+    if (!formData.phone.trim()) {
+      newErrors.phone = 'Por favor ingresa tu número telefónico';
+      hasErrors = true;
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = 'Por favor ingresa tu correo electrónico';
+      hasErrors = true;
+    } else {
+      // Validar formato de email básico
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(formData.email)) {
+        newErrors.email = 'Por favor ingresa un correo electrónico válido';
+        hasErrors = true;
+      }
+    }
+
+    if (!formData.service) {
+      newErrors.service = 'Por favor selecciona un curso';
+      hasErrors = true;
+    }
+
+    if (hasErrors) {
+      setErrors(newErrors);
+      return;
+    }
+
+    // Limpiar formulario después del envío
+    setFormData({
+      name: '',
+      phone: '',
+      email: '',
+      service: '',
+    });
+
+    // Mostrar popup de éxito
+    setShowSuccessDialog(true);
+
+    // Cerrar automáticamente después de 3 segundos
+    setTimeout(() => {
+      setShowSuccessDialog(false);
+    }, 3000);
+
+    console.log('✅ ¡Información enviada correctamente! Te contactaremos pronto. ');
+  };
+
+  const scrollToServices = () => {
+    const element = document.getElementById('services');
+    if (element) {
+      const offset = 100; // Offset para que no baje tanto
+      const elementPosition = element.offsetTop - offset;
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+    }
   };
 
   return (
-    <HeroContainer>
+    <HeroContainer id="hero">
       <HeroContent>
         <Container maxWidth="xl">
           <ContentWrapper>
             {/* Contenido izquierdo */}
             <LeftContent>
-                             <FastReliable variant="body1">
-                 Formación profesional
-               </FastReliable>
-              
+              <FastReliable variant="body1">
+                Formación profesional
+              </FastReliable>
+
               <MainHeadline variant="h1">
                 Capacítate en el arte de la gastronomía y el servicio al cliente.
               </MainHeadline>
-              
-                             <ViewServicesButton endIcon={<ArrowForward />}>
-                 Ver nuestros cursos
-               </ViewServicesButton>
+
+              <ViewServicesButton endIcon={<ArrowForward />} onClick={scrollToServices}>
+                Ver nuestros cursos
+              </ViewServicesButton>
             </LeftContent>
 
             {/* Formulario de estimación rápida */}
@@ -248,10 +375,11 @@ const HeroSection: React.FC = () => {
               <FormTitle>
                 Solicita información de nuestros cursos
               </FormTitle>
-              
-              <Box sx={{ 
-                display: 'flex', 
-                gap: '20px', 
+
+
+              <Box sx={{
+                display: 'flex',
+                gap: '20px',
                 flexWrap: 'wrap',
                 alignItems: 'center',
                 '@media (max-width: 768px)': {
@@ -267,9 +395,11 @@ const HeroSection: React.FC = () => {
                     value={formData.name}
                     onChange={handleInputChange('name')}
                     variant="outlined"
+                    error={!!errors.name}
                   />
+                  {errors.name && <ErrorText>{errors.name}</ErrorText>}
                 </FormField>
-                
+
                 <FormField>
                   <FieldLabel>TELÉFONO</FieldLabel>
                   <StyledTextField
@@ -278,9 +408,11 @@ const HeroSection: React.FC = () => {
                     value={formData.phone}
                     onChange={handleInputChange('phone')}
                     variant="outlined"
+                    error={!!errors.phone}
                   />
+                  {errors.phone && <ErrorText>{errors.phone}</ErrorText>}
                 </FormField>
-                
+
                 <FormField>
                   <FieldLabel>CORREO</FieldLabel>
                   <StyledTextField
@@ -289,9 +421,11 @@ const HeroSection: React.FC = () => {
                     value={formData.email}
                     onChange={handleInputChange('email')}
                     variant="outlined"
+                    error={!!errors.email}
                   />
+                  {errors.email && <ErrorText>{errors.email}</ErrorText>}
                 </FormField>
-                
+
                 <FormField>
                   <FieldLabel>SELECCIONA CURSO</FieldLabel>
                   <StyledTextField
@@ -301,25 +435,64 @@ const HeroSection: React.FC = () => {
                     value={formData.service}
                     onChange={handleInputChange('service')}
                     variant="outlined"
+                    error={!!errors.service}
                   >
                     <MenuItem value="bartender">Bartender Profesional</MenuItem>
                     <MenuItem value="mesero">Servicio de Mesero</MenuItem>
                     <MenuItem value="cocina">Cocina Básica</MenuItem>
                     <MenuItem value="atencion">Atención al Cliente</MenuItem>
                   </StyledTextField>
+                  {errors.service && <ErrorText>{errors.service}</ErrorText>}
                 </FormField>
-                
-                                                  <FormField sx={{ flex: '0.3' }}>
-                   <Box sx={{ height: '18px' }} /> {/* Espacio para simular la etiqueta */}
-                   <SubmitButton type="submit" endIcon={<ArrowForward />} sx={{ width: '100%' }}>
-                     Enviar 
-                   </SubmitButton>
-                 </FormField>
+
+                <FormField sx={{ flex: '0.3' }}>
+                  <Box sx={{ height: '18px' }} /> {/* Espacio para simular la etiqueta */}
+                  <SubmitButton type="submit" endIcon={<ArrowForward />} sx={{ width: '100%' }}>
+                    Enviar
+                  </SubmitButton>
+                </FormField>
               </Box>
             </EstimateForm>
           </ContentWrapper>
         </Container>
       </HeroContent>
+
+      {/* Popup de éxito */}
+      <SuccessDialog
+        open={showSuccessDialog}
+        onClose={() => setShowSuccessDialog(false)}
+        aria-labelledby="success-dialog-title"
+      >
+        <DialogContent>
+          <SuccessIcon />
+          <SuccessTitle id="success-dialog-title">
+            ¡Formulario Enviado!
+          </SuccessTitle>
+          <SuccessMessage>
+            Tu información ha sido enviada correctamente. Te contactaremos pronto para brindarte más detalles sobre nuestros cursos.
+          </SuccessMessage>
+        </DialogContent>
+        <DialogActions sx={{ justifyContent: 'center', padding: '0 20px 20px' }}>
+          <Button
+            onClick={() => setShowSuccessDialog(false)}
+            variant="contained"
+            sx={{
+              backgroundColor: COLORS.PRIMARY_DARK,
+              color: COLORS.WHITE,
+              borderRadius: '25px',
+              padding: '8px 24px',
+              textTransform: 'none',
+              fontSize: '14px',
+              fontWeight: 'bold',
+              '&:hover': {
+                backgroundColor: COLORS.PRIMARY_LIGHT,
+              },
+            }}
+          >
+            Entendido
+          </Button>
+        </DialogActions>
+      </SuccessDialog>
     </HeroContainer>
   );
 };

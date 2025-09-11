@@ -371,7 +371,7 @@ const HeroSection: React.FC = () => {
             </LeftContent>
 
             {/* Formulario de estimación rápida */}
-            <EstimateForm as="form" onSubmit={handleSubmit}>
+            {/* <EstimateForm as="form" onSubmit={handleSubmit}>
               <FormTitle>
                 Solicita información de nuestros cursos
               </FormTitle>
@@ -446,13 +446,13 @@ const HeroSection: React.FC = () => {
                 </FormField>
 
                 <FormField sx={{ flex: '0.3' }}>
-                  <Box sx={{ height: '18px' }} /> {/* Espacio para simular la etiqueta */}
+                  <Box sx={{ height: '18px' }} /> 
                   <SubmitButton type="submit" endIcon={<ArrowForward />} sx={{ width: '100%' }}>
                     Enviar
                   </SubmitButton>
                 </FormField>
               </Box>
-            </EstimateForm>
+            </EstimateForm> */}
           </ContentWrapper>
         </Container>
       </HeroContent>
